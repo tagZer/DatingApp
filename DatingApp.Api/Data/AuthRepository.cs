@@ -34,7 +34,8 @@ namespace DatingApp.Api.Data
 
                 for(int i=0; i < computedHash.Length; i++) 
                 {
-                    if(computedHash[i] != passwordHash[i]) return false;
+                    if(computedHash[i] != passwordHash[i])
+                        return false;
                 }
             }
             return true;    
@@ -52,16 +53,7 @@ namespace DatingApp.Api.Data
             await _context.SaveChangesAsync();
             
             return user;
-        }
-
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }            
-        }
+        }       
 
         public async Task<bool> UserExists(string username)
         {
@@ -70,6 +62,14 @@ namespace DatingApp.Api.Data
                 return true;
             } 
             return false;                
+        }
+         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }            
         }
     }
 }
