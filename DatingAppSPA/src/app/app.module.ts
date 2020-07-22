@@ -33,6 +33,8 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 // auth
 export function tokenGetter() {
@@ -50,7 +52,8 @@ export function tokenGetter() {
       ListsComponent,
       MessagesComponent,
       MemberDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -60,6 +63,7 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
+      FileUploadModule,
       TabsModule.forRoot(),
       JwtModule.forRoot({
          config: {
