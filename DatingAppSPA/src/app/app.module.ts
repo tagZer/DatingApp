@@ -39,6 +39,9 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 // file upload
 import { FileUploadModule } from 'ng2-file-upload';
 
+// time ago pipe
+import { TimeagoModule } from 'ngx-timeago';
+
 // auth
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -56,7 +59,7 @@ export function tokenGetter() {
       MessagesComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
    ],
    imports: [
       BrowserModule,
@@ -64,6 +67,7 @@ export function tokenGetter() {
       FormsModule,
       ReactiveFormsModule,
       BrowserAnimationsModule,
+      TimeagoModule.forRoot(),
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
