@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 
@@ -17,6 +17,7 @@ import { MemberDetailComponent } from './members/member-list/member-detail/membe
 import { MessagesComponent } from './messages/messages.component';
 import { MemberEditComponent } from './members/member-list/member-edit/member-edit.component';
 import { MemberListComponent } from './members/member-list/member-list/member-list.component';
+import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
 
 // services
 import { AuthService } from './_services/auth.service';
@@ -31,9 +32,11 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 // ngx
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
-import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
+
+// file upload
 import { FileUploadModule } from 'ng2-file-upload';
 
 // auth
@@ -59,10 +62,12 @@ export function tokenGetter() {
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
+      BsDatepickerModule.forRoot(),
       FileUploadModule,
       TabsModule.forRoot(),
       JwtModule.forRoot({
