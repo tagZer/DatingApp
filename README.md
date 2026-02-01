@@ -1,2 +1,3 @@
 TODO
-Update versions, rewrite some logic
+- update versions
+- check for refactoring and repurposing
