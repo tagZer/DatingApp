@@ -1,3 +1,3 @@
 TODO
-- update versions
-- check for refactoring and repurposing
+- update versions Angular and .NET
+- check for refactoring and repurposing (optional clonning for light ERP)
